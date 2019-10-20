@@ -1,0 +1,100 @@
+/**
+ * Colors
+ */
+
+// Blue Dark
+$dark-blue: #123985;
+
+// Blue
+$blue-1: #001B59;
+$blue-2: #0061AF;
+$blue-3: #0080C6;
+$blue-4: #00B9F2;
+$blue-5: #20C4F4;
+$blue-6: #C7EAFB;
+
+// Grey
+$gray-1: #384F5A;
+$gray-2: #8CA0AA;
+$gray-3: #D8E2E7;
+
+// Teal
+$teal-1: #006254;
+$teal-2: #00A296;
+$teal-3: #48BFAD;
+
+// Green
+$green-1: #2A7D2F;
+$green-2: #23AA4A;
+$green-3: #76C153;
+
+// Puprple
+$purple-1: #54166E;
+$purple-2: #6F2C91;
+$purple-3: #9666AB;
+
+// White and gray
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: $gray-2;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// Text
+$primary-text-color: #304550;
+$secondary-text-color: #757575;
+// Border
+$border-color: rgba(0, 0, 0, .15);
+
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900
+);
+
+$dark-blue: $dark-blue;
+$blue: $blue-2;
+$red: #ea0025;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: $green-2;
+$teal: $teal-2;
+$cyan: $blue-5;
+
+$colors: (
+  dark-blue: $dark-blue,
+  blue: $blue,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  cyan: $cyan,
+  gray: $gray-600,
+);
+
+$theme-colors: (
+  primary: $blue,
+  secondary: $border-color,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800,
+  dark-blue: $dark-blue
+);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 10%;

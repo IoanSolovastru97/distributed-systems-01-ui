@@ -1,0 +1,58 @@
+<ng-container *ngIf="isProcessing; else clients">
+  <app-loader [isLoading]="isProcessing"></app-loader>
+</ng-container>
+
+<!-- <ng-template #configuration> -->
+<!-- <ng-container *ngIf="error; else data_container">
+    <app-alert [error]="error"></app-alert>
+  </ng-container> -->
+
+<ng-template #clients>
+
+  <!-- Header -->
+  <div class="row my-4">
+    <div class="col">
+      <h4 class="font-weight-bold">
+        Clients
+        <button class="btn btn-primary float-right" (click)="addNewClient()">
+          <i class="fas fa-user-plus margin--right__sm"></i>
+          Add Client
+        </button>
+      </h4>
+    </div>
+  </div>
+  <!-- End: Header -->
+
+  <div class="row mb-5 pb-5">
+
+    <!-- Client List column -->
+    <div class="col-sm-4">
+      <div class="col--cards">
+        <h6 class="col--cards__title text-muted margin--bottom__sm">Name</h6>
+        <div class="col--cards__wrapper col--cards__wrapper--list list-group">
+
+          <!-- Client Item -->
+          <app-client-item *ngFor="let client of clientModel.all; let i = index" [clientData]="client" [index]="i"
+            (selectedClientSsn)="onClientSsnSelected($event)">
+          </app-client-item>
+          <!-- End: Client Item -->
+
+        </div>
+      </div>
+    </div>
+    <!-- End: Client List column -->
+
+    <!-- Client details column -->
+    <div class="col-sm-8">
+      <div class="col--cards">
+        <h6 class="col--cards__title text-muted margin--bottom__sm">Details</h6>
+        <div class="col--cards__wrapper">
+          <app-client-details [addClient]="addClient" [ssn]="clientModel.selectedClientSsn" (onSaveSuccess)="getAllClients($event)"></app-client-details>
+        </div>
+      </div>
+    </div>
+    <!-- End: Client details column -->
+
+  </div>
+
+</ng-template>

@@ -1,0 +1,101 @@
+<ng-container *ngIf="!clientData; else details">
+
+  <div class="row justify-content-center py-5">
+    <div class="alert alert-secondary border-secondary col-sm-11 col-md-8 text-center text-muted" role="alert">
+      <i class="fa fa-mouse-pointer mr-1" aria-hidden="true"></i>
+      Please select a client
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #details>
+  <div class="row justify-content-center mt-4">
+    <div class="col">
+      <div class="card border-secondary">
+
+        <!-- Card Header: holding the client firstName & lastName -->
+        <h4 class="card-header bg-secondary">
+          {{ clientData.firstname }} {{ clientData.lastname }}
+        </h4>
+        <!-- End: Card Header -->
+
+        <!-- Card Body: holding the editable client fields -->
+        <div class="card-body">
+          <div class="my-4">
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">FirstName</label>
+                  <input class="form-control" type="text" name="firstName" required [(ngModel)]="clientData.firstname">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">LastName</label>
+                  <input class="form-control" type="text" name="lastName" required [(ngModel)]="clientData.lastname">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">Email</label>
+                  <input class="form-control" type="text" name="email" required [(ngModel)]="clientData.email">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">Identity Card Number</label>
+                  <input class="form-control" type="text" name="address" required
+                    [(ngModel)]="clientData.identityCardNumber">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">Address</label>
+                  <input class="form-control" type="text" name="address" required [(ngModel)]="clientData.address">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- End: Card Body -->
+
+        <!-- Card footer: holding the Save / Cancel and Delete button for single client data -->
+        <div class="card-footer text-muted">
+          <div class="form-inline d-flex">
+            <!-- Save -->
+            <button type="button" class="btn btn-primary mr-2" role="button"
+              [disabled]="!hasClientDataChanged() || isSaving || isRemoving" [ngClass]="{'disabled': !hasClientDataChanged()}"
+              (click)="onClientSave()">
+              <i class="fas fa-check mr-2" *ngIf="!isSaving"></i>
+              <i class="fa fa-spinner fa-spin mr-2" *ngIf="isSaving"></i>
+              Save Client
+            </button>
+            <!-- Cancel -->
+            <button type="button" class="btn btn-outline-primary" role="button" [disabled]="!hasClientDataChanged()"
+              [ngClass]="{'disabled': !hasClientDataChanged() || isSaving || isRemoving}">
+              <i class="fas fa-times mr-2"></i>
+              Cancel
+            </button>
+            <!-- Delete -->
+            <button type="button" class="btn btn-danger ml-auto" role="button" [disabled]="isRemoving || isSaving"
+              [ngClass]="{'disabled': isRemoving}" (click)="onClientRemove()">
+              <i class="fas fa-trash" *ngIf="!isRemoving"></i>
+              <i class="fa fa-spinner fa-spin" *ngIf="isRemoving"></i>
+            </button>
+          </div>
+        </div>
+        <!-- End: Card footer -->
+
+      </div>
+    </div>
+  </div>
+</ng-template>

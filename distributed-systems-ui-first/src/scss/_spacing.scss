@@ -1,0 +1,164 @@
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3)
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+//
+// Gutter spaces
+//
+
+$gutters: (
+  xs: 5px,
+  sm: 10px,
+  md: 20px,
+  lg: 35px
+);
+
+//
+// Margin helpers
+//
+.margin {
+  @each $name,
+  $size in $gutters {
+    &--#{$name} {
+      margin: $size;
+      &__0 {
+        margin: 0 !important;
+      }
+    }
+    &--horizontal {
+      &__#{$name} {
+        margin: 0 $size;
+      }
+      &__0 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+    &--vertical {
+      &__#{$name} {
+        margin: $size 0;
+      }
+      &__0 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+    &--top {
+      &__#{$name} {
+        margin-top: $size;
+      }
+      &__0 {
+        margin-top: 0 !important;
+      }
+    }
+    &--bottom {
+      &__#{$name} {
+        margin-bottom: $size;
+      }
+      &__0 {
+        margin-bottom: 0 !important;
+      }
+    }
+    &--right {
+      &__#{$name} {
+        margin-right: $size;
+      }
+      &__0 {
+        margin-right: 0 !important;
+      }
+    }
+    &--left {
+      &__#{$name} {
+        margin-left: $size;
+      }
+      &__0 {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+//
+// Padding helpers
+//
+.padding {
+  @each $name,
+  $size in $gutters {
+    &__#{$name} {
+      padding: $size;
+      &__0 {
+        padding: 0 !important;
+      }
+    }
+    &--horizontal {
+      &__#{$name} {
+        padding: 0 $size;
+      }
+      &__0 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+    &--vertical {
+      &__#{$name} {
+        padding: $size 0;
+      }
+      &__0 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+    &--top {
+      &__#{$name} {
+        padding-top: $size;
+      }
+      &__0 {
+        padding-top: 0 !important;
+      }
+    }
+    &--bottom {
+      &__#{$name} {
+        padding-bottom: $size;
+      }
+      &__0 {
+        padding-bottom: 0 !important;
+      }
+    }
+    &--right {
+      &__#{$name} {
+        padding-right: $size;
+      }
+      &__0 {
+        padding-right: 0 !important;
+      }
+    }
+    &--left {
+      &__#{$name} {
+        padding-left: $size;
+      }
+      &__0 {
+        padding-left: 0 !important;
+      }
+    }
+  }
+}
+

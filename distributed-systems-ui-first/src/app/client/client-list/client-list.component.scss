@@ -1,0 +1,31 @@
+@import '../../../scss/colors';
+@import '../../../scss/spacing';
+
+$card-height: 70px;
+
+.col--cards {
+  &__title {
+    font-size: small;
+    font-variant: normal;
+  }
+
+  &__wrapper {
+    height: calc(#{$card-height} * 8);
+    border-top: 1px solid $border-color;
+
+    &--list {
+      border-top: 0;
+      box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .1);
+      overflow-y: auto;
+    }
+  }
+}
+
+.navbar {
+  box-shadow: 0px -1px 4px 1px rgba(0, 0, 0, 0.1);
+
+  button.btn {
+    min-width: 12rem;
+    transition: all .3s;
+  }
+}

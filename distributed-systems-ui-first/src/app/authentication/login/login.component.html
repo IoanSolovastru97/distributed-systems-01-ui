@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="row justify-content-md-center">
+
+    <div class="col">
+
+      <form class="form-signin padding--vertical__lg" #form="ngForm" novalidate (ngSubmit)="onLogin(form)"
+        [ngClass]="{ 'was-validated': form.submitted }">
+        <h2 class="form-signin-heading margin--vertical__md">Please login</h2>
+
+        <div class="form-group margin--bottom__sm is-invalid">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <i class="fas fa-user input-group-text padding--left__xs"></i>
+            </div>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+              aria-describedby="username" #username="ngModel" required ngModel>
+          </div>
+          <div class="small text-danger" *ngIf="form.submitted && username.invalid">(*) Username required</div>
+        </div>
+
+        <div class="form-group margin--bottom__sm is-invalid">
+          <div class="input-group">
+            <span class="input-group-prepend">
+              <i class="fas fa-key input-group-text"></i>
+            </span>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+              aria-describedby="password" #password="ngModel" required ngModel>
+          </div>
+          <div class="small text-danger" *ngIf="form.submitted && password.invalid">(*) Password required</div>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" role="button" [disabled]="loading">
+          Login <i class="fas fa-spinner fa-spin marging--left__md" *ngIf="loading"></i>
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

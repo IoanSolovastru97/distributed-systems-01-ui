@@ -1,0 +1,29 @@
+// Components
+//
+// Define common padding and border radius sizes and more.
+$line-height-lg: 1.5;
+$line-height-sm: 1.5;
+
+$border-width: 1px;
+$border-color: $border-color;
+
+$border-radius: .25rem;
+$border-radius-lg: .3rem;
+$border-radius-sm: .2rem;
+
+// Button
+//
+// Dfine button shadow, spacing, disable color and border
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-link-disabled-color: #CED3D6;
+$btn-block-spacing-y: .5rem;
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: $border-radius;
+$btn-border-radius-lg: $border-radius-lg;
+$btn-border-radius-sm: $border-radius-sm;
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: $border-radius;
+$btn-border-radius-lg: $border-radius-lg;
+$btn-border-radius-sm: $border-radius-sm;

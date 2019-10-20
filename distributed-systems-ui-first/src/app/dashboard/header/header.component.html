@@ -1,0 +1,31 @@
+<nav class="navbar navbar-toggleable-md navbar-dark bg-dark-blue fixed-top">
+  <a class="navbar-brand" routerLink="/">
+    Banking Service
+  </a>
+
+  <ul class="navbar-nav navbar-right">
+
+    <li class="nav-item" routerLinkActive="active" *ngIf="isEmployee()">
+      <a class="nav-link" routerLink="/clients">
+        <i class="fas fa-users margin--right__xs"></i>
+        Clients
+      </a>
+    </li>
+
+    <li class="nav-item" routerLinkActive="active" *ngIf="isEmployee()">
+      <a class="nav-link" routerLink="/accounts">
+        <i class="fas fa-file-invoice-dollar margin--right__xs"></i>
+        Accounts
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <!-- Binding header.component.logout() method to the link onClick event -->
+      <a class="nav-link logout-link" (click)="logout()">
+        Logout
+        <i class="fas fa-sign-out-alt margin--left__sm"></i>
+      </a>
+    </li>
+
+  </ul>
+</nav>

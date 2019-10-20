@@ -1,0 +1,62 @@
+@import '../../../../scss/_colors';
+
+$container-height: 30px;
+$container-width: 30px;
+$spin-border: 3px;
+
+.wrapper {
+
+  .loader {
+    border: $spin-border solid $blue-2;
+    border-radius: 50%;
+    display: inline-block;
+    height: $container-height;
+    margin: 0 12.5% 100px;
+    width: $container-width;
+    position: relative;
+
+    animation: spin 0.75s infinite linear;
+
+    &::before,
+    &::after {
+      left: -$spin-border;
+      top: -$spin-border;
+      display: none;
+      position: absolute;
+      content: '';
+      width: inherit;
+      height: inherit;
+      border: inherit;
+      border-radius: inherit;
+    }
+
+    &.spin {
+      display: inline-block;
+      border-color: transparent;
+      border-top-color: $blue-4;
+      // animation-duration: 1.2s;
+
+      &::after,
+      &::before {
+        @extend .spin;
+      }
+
+      &::before {
+        transform: rotate(120deg);
+      }
+
+      &::after {
+        transform: rotate(240deg);
+      }
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

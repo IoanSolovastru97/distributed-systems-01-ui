@@ -1,0 +1,38 @@
+@import '../../../scss/colors';
+@import '../../../scss/spacing';
+@import '../../../scss/navs';
+
+.navbar {
+  box-shadow: 0px 2px 4px 1px rgba(18, 57, 133, 0.2);
+
+  .logout-link:hover {
+    cursor: pointer;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+
+    .nav-item {
+      &:nth-child(2) {
+        border-right-width: 0.5px;
+        border-right-color: $white;
+        border-right-style: groove;
+      }
+
+      .nav-link {
+        color: $navbar-dark-color;
+        padding: ($spacer/2) $spacer;
+
+        &:hover {
+          color: $navbar-dark-hover-color
+        }
+      }
+
+      &.active {
+        & > .nav-link {
+          color: $navbar-dark-hover-color
+        }
+      }
+    }
+  }
+}
