@@ -13,15 +13,13 @@ import { StorageService } from '../shared/services/storage.service';
 import { SharedComponentsModule } from '../shared/components/shared-components.module';
 
 /** Module routing and avialable components (at the same module level) */
-import { ClientRoutingModule } from './client-routing.module';
-import { ClientListComponent } from './client-list/client-list.component';
-import { ClientItemComponent } from './client-list/client-item/client-item.component';
-import { ClientDetailsComponent } from './client-details/client-details.component';
+import { PatientRoutingModule } from './patient-routing.module';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ClientListComponent, ClientItemComponent, ClientDetailsComponent],
-  imports: [CommonModule, FormsModule, ClientRoutingModule, SharedComponentsModule],
+  declarations: [PatientDetailsComponent],
+  imports: [CommonModule, FormsModule, PatientRoutingModule, SharedComponentsModule],
   providers: [
     ApiService,
     AuthGuard,
@@ -34,4 +32,4 @@ import { FormsModule } from '@angular/forms';
     }
   ]
 })
-export class ClientModule {}
+export class PatientModule { }

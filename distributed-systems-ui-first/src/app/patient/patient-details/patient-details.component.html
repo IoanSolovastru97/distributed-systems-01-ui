@@ -1,9 +1,9 @@
-<ng-container *ngIf="!clientData; else details">
+<ng-container *ngIf="!patientData; else details">
 
   <div class="row justify-content-center py-5">
     <div class="alert alert-secondary border-secondary col-sm-11 col-md-8 text-center text-muted" role="alert">
       <i class="fa fa-mouse-pointer mr-1" aria-hidden="true"></i>
-      Please select a client
+      Please select a patient
     </div>
   </div>
 </ng-container>
@@ -13,13 +13,13 @@
     <div class="col">
       <div class="card border-secondary">
 
-        <!-- Card Header: holding the client firstName & lastName -->
+        <!-- Card Header: holding the patient firstName & lastName -->
         <h4 class="card-header bg-secondary">
-          {{ clientData.firstname }} {{ clientData.lastname }}
+          {{ patientData.name }}
         </h4>
         <!-- End: Card Header -->
 
-        <!-- Card Body: holding the editable client fields -->
+        <!-- Card Body: holding the editable patient fields -->
         <div class="card-body">
           <div class="my-4">
 
@@ -27,39 +27,40 @@
               <div class="col">
                 <div class="form-group">
                   <label class="col-form-label" for="inputLarge">FirstName</label>
-                  <input class="form-control" type="text" name="firstName" required [(ngModel)]="clientData.firstname">
+                  <input class="form-control" type="text" name="name" required [(ngModel)]="patientData.name">
                 </div>
               </div>
-              <div class="col">
-                <div class="form-group">
-                  <label class="col-form-label" for="inputLarge">LastName</label>
-                  <input class="form-control" type="text" name="lastName" required [(ngModel)]="clientData.lastname">
-                </div>
-              </div>
-            </div>
-
 
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label class="col-form-label" for="inputLarge">Email</label>
-                  <input class="form-control" type="text" name="email" required [(ngModel)]="clientData.email">
+                  <input class="form-control" type="text" name="email" required [(ngModel)]="patientData.email">
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
-                  <label class="col-form-label" for="inputLarge">Identity Card Number</label>
-                  <input class="form-control" type="text" name="address" required
-                    [(ngModel)]="clientData.identityCardNumber">
+                  <label class="col-form-label" for="inputLarge">Gender</label>
+                  <input class="form-control" type="text" name="gender" required
+                    [(ngModel)]="patientData.gender">
                 </div>
               </div>
             </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label class="col-form-label" for="inputLarge">Birthday</label>
+                <input class="form-control" type="text" name="birthday" required
+                  [(ngModel)]="patientData.birthday">
+              </div>
+            </div>
+          </div>
 
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label class="col-form-label" for="inputLarge">Address</label>
-                  <input class="form-control" type="text" name="address" required [(ngModel)]="clientData.address">
+                  <input class="form-control" type="text" name="address" required [(ngModel)]="patientData.address">
                 </div>
               </div>
             </div>
@@ -68,26 +69,26 @@
         </div>
         <!-- End: Card Body -->
 
-        <!-- Card footer: holding the Save / Cancel and Delete button for single client data -->
+        <!-- Card footer: holding the Save / Cancel and Delete button for single patient data -->
         <div class="card-footer text-muted">
           <div class="form-inline d-flex">
             <!-- Save -->
             <button type="button" class="btn btn-primary mr-2" role="button"
-              [disabled]="!hasClientDataChanged() || isSaving || isRemoving" [ngClass]="{'disabled': !hasClientDataChanged()}"
-              (click)="onClientSave()">
+              [disabled]="!hasPatientDataChanged() || isSaving || isRemoving" [ngClass]="{'disabled': !hasPatientDataChanged()}"
+              (click)="onPatientSave()">
               <i class="fas fa-check mr-2" *ngIf="!isSaving"></i>
               <i class="fa fa-spinner fa-spin mr-2" *ngIf="isSaving"></i>
-              Save Client
+              Save patient
             </button>
             <!-- Cancel -->
-            <button type="button" class="btn btn-outline-primary" role="button" [disabled]="!hasClientDataChanged()"
-              [ngClass]="{'disabled': !hasClientDataChanged() || isSaving || isRemoving}">
+            <button type="button" class="btn btn-outline-primary" role="button" [disabled]="!haspatientDataChanged()"
+              [ngClass]="{'disabled': !hasPatientDataChanged() || isSaving || isRemoving}">
               <i class="fas fa-times mr-2"></i>
               Cancel
             </button>
             <!-- Delete -->
             <button type="button" class="btn btn-danger ml-auto" role="button" [disabled]="isRemoving || isSaving"
-              [ngClass]="{'disabled': isRemoving}" (click)="onClientRemove()">
+              [ngClass]="{'disabled': isRemoving}" (click)="onPatientRemove()">
               <i class="fas fa-trash" *ngIf="!isRemoving"></i>
               <i class="fa fa-spinner fa-spin" *ngIf="isRemoving"></i>
             </button>

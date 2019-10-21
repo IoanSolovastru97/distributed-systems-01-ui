@@ -19,7 +19,6 @@ export class AuthService {
    */
   isLoggedIn(): boolean {
     const token: any = this.storageService.get(this.storageService.app_token);
-    console.log("Is log in?" + token);
     return token ? true : false;
   }
   /**
@@ -35,8 +34,6 @@ export class AuthService {
     const header: any = new HttpHeaders({
       Authorization: `Basic ${authorizationCode}`
     });
-    console.log("auth.service.ts URL = " + url);
-    console.log("auth.service.ts authorizationCode = " + authorizationCode);
     return this.http.get(url, {
       headers: header
     });
