@@ -1,0 +1,20 @@
+<div class="row justify-content-center mt-4">
+  <div class="col">
+    <div class="card border-secondary">
+      <h4 class="card-header bg-secondary">
+        Patients
+      </h4>
+
+      <div class="row" *ngFor="let patients of caregiverData.patients; let i = index">
+        <small class="badge badge-pill relevancy-weight">{{ i }}</small>
+        <div class="d-flex w-100 justify-content-between">
+          <h6 class="mb-1 font-weight-bold ml-5 margin--left__lg">{{ patients.name }}</h6>
+        </div>
+        <small class="text-muted font-italic ml-5 margin--left__lg">Gender: {{ patients.gender }}</small>
+        <small class="text-muted font-italic ml-5 margin--left__lg">Birthday: {{ patients.birthday }}</small>
+        <small class="text-muted font-italic ml-5 margin--left__lg">Address: {{ patients.address }}</small>
+      </div>
+
+    </div>
+  </div>
+</div>

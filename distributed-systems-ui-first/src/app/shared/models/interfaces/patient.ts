@@ -17,7 +17,7 @@ export interface PatientInterface {
   address: string;
 
   role: string;
-  
+
   // medicalRecord: MedicalRecordInterface[];
   medicalRecord: Array<MedicalRecordInterface>;
 

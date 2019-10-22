@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { PatientInterface } from '../models/interfaces/patient';
+import { CaregiverInterface } from '../models/interfaces/caregiver';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class ApiService {
    * @return {Array<PatientInterface>}
    */
   public getPatients(): Observable<Array<PatientInterface>> {
+    console.log("Here")
     const url = `${this.BASE_URL}/patient`;
     return this.http.get<Array<PatientInterface>>(url);
   }
@@ -60,4 +62,18 @@ export class ApiService {
     const url = `${this.BASE_URL}/patient/${patientData.username}`;
     return this.http.put<PatientInterface>(url, patientData);
   }
+
+  //Caregiver
+    /**
+   * [GET] Fetch single Patient details
+   * @param username  {string}
+   * @return {PatientInterface}
+   */
+  public getCaregiverDetails(username: string): Observable<CaregiverInterface> {
+    const url = `${this.BASE_URL}/caregiver/${username}`;
+    console.log("getCaregiver URL = " + url);
+    return this.http.get<CaregiverInterface>(url);
+  }
+
+  
 }

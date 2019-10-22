@@ -22,8 +22,8 @@ export class DashboardHeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  isEmployee(){
-    return this.storageService.get(this.storageService.role_token) === 'ROLE_EMPLOYEE';
+  isDoctor(){
+    return this.storageService.get(this.storageService.role_token) === 'ROLE_DOCTOR';
   }
 
   isAdmin(){

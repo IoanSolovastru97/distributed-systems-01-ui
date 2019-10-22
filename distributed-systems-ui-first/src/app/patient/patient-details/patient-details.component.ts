@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 
 import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 
-import { PatientModel } from 'src/app/shared/models/patient.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 import { StorageService } from 'src/app/shared/services/storage.service';
@@ -29,7 +28,6 @@ export class PatientDetailsComponent implements OnInit {
     private patientData: PatientInterface;
 
     constructor(
-        public patientModel: PatientModel,
         private apiService: ApiService,
         private storageService: StorageService,
         private toastr: ToastrService) {

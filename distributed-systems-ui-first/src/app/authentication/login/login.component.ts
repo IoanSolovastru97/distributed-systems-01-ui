@@ -78,9 +78,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
             this.router.navigate(['/patient'])
           }
-          // if(this.storageService.get(this.storageService.role_token) === 'ROLE_ADMIN'){
-          //   this.router.navigate(['/employee'])
-          // }
+          if(this.storageService.get(this.storageService.role_token) === 'ROLE_CAREGIVER'){
+            this.router.navigate(['/caregiver'])
+          }
           //  this.router.navigatde(['/']);
         },
         (error: HttpErrorResponse) => {

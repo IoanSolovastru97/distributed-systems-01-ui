@@ -21,7 +21,7 @@ const routes: Routes = [
       // /** '/patient' route path configuration */
       { path: 'patient', loadChildren: '../patient/patient.module#PatientModule' },
       // /** '/admin' route path config */
-      // { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' },
+      { path: 'caregiver', loadChildren: '../caregiver/caregiver.module#CaregiverModule' },
       // { path: 'employee', loadChildren: '../admin/admin.module#AdminModule' }
     ]
   }
