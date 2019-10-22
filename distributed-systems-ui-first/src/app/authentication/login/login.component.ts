@@ -1,13 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 
 import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from '../../shared/services/auth.service';
 import { StorageService } from '../../shared/services/storage.service';
+import { PatientDetailsComponent } from 'src/app/patient/patient-details/patient-details.component';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   // helper flag, it will be set to true while processing a request
   loading: boolean = false;
   subscription: Subscription;
+  username: string;
 
   constructor(
     private authService: AuthService,
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     /**
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
      * The subscribe method will return an Observavble (kind of a Promise), more details here:
      * https://angular-2-training-book.rangle.io/handout/routing/query_params.html
      */
+
     this.subscription = this.route.queryParams.subscribe((params: Params) => {
       /** If unauthorized flag has been set to true
        * a bootstrap Alert message will be shown above the login form */
@@ -60,29 +63,27 @@ export class LoginComponent implements OnInit, OnDestroy {
     /** Save each form value into a variable */
     const { username, password } = form.value;
     const authorizationCode: string = btoa(`${username}:${password}`);
-
     if (form.valid) {
       /** reset error if has been set before (will hide the bootstrap Alert message) */
       this.error = '';
       this.loading = true;
-      console.log("Username = " + username);
-      console.log("Password = " + password);
-      console.log("AuthorizationCode = " + authorizationCode);
       this.authService.login(username, password, authorizationCode).subscribe(
         (response: any) => {
-          console.log("login.component.ts");
+          console.log("Username = " + username);
+          this.storageService.set(this.storageService.username, username);
           this.storageService.set(this.storageService.app_token, authorizationCode);
           this.storageService.set(this.storageService.role_token, response.authorities[0].authority);
-          // if(this.storageService.get(this.storageService.role_token) === 'ROLE_EMPLOYEE'){
-          //   this.router.navigate(['/clients'])
-          // }
+          console.log("Aut role = " + this.storageService.get(this.storageService.role_token));
+          if (this.storageService.get(this.storageService.role_token) === 'ROLE_PATIENT') {
+
+            this.router.navigate(['/patient'])
+          }
           // if(this.storageService.get(this.storageService.role_token) === 'ROLE_ADMIN'){
           //   this.router.navigate(['/employee'])
           // }
-           this.router.navigate(['/']);
+          //  this.router.navigatde(['/']);
         },
         (error: HttpErrorResponse) => {
-          console.log("Log in failed!");
           this.error = error.status === 401 || !error.status ? 'Username or password incorrect' : 'Oh snap! Something got wrong';
           this.toastr.error(this.error);
           /** Reset loading to false

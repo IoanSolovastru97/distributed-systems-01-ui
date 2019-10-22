@@ -13,7 +13,7 @@ import { SharedComponentsModule } from '../shared/components/shared-components.m
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, AuthRoutingModule, SharedComponentsModule],
   declarations: [LoginComponent],
-  providers: [StorageService],
+  providers: [StorageService ],
   exports: []
 })
 export class AuthModule {}

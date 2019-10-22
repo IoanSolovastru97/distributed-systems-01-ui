@@ -1,21 +1,14 @@
 <nav class="navbar navbar-toggleable-md navbar-dark bg-dark-blue fixed-top">
   <a class="navbar-brand" routerLink="/">
-    Banking Service
+    Healthcare Service
   </a>
 
   <ul class="navbar-nav navbar-right">
 
     <li class="nav-item" routerLinkActive="active" *ngIf="isEmployee()">
-      <a class="nav-link" routerLink="/clients">
+      <a class="nav-link" routerLink="/patient">
         <i class="fas fa-users margin--right__xs"></i>
-        Clients
-      </a>
-    </li>
-
-    <li class="nav-item" routerLinkActive="active" *ngIf="isEmployee()">
-      <a class="nav-link" routerLink="/accounts">
-        <i class="fas fa-file-invoice-dollar margin--right__xs"></i>
-        Accounts
+        Patient
       </a>
     </li>
 

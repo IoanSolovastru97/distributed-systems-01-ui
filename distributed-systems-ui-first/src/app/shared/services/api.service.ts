@@ -2,60 +2,62 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { ClientInterface } from '../models/interfaces/client';
+import { PatientInterface } from '../models/interfaces/patient';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   /** API Common URL for all end points */
-  public BASE_URL: string = 'http://localhost:8080';
+  public BASE_URL: string = 'http://localhost:8080/healthcare';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
-   * [GET] Fetch the list of Clients
-   * @return {Array<ClientInterface>}
+   * [GET] Fetch the list of Patients
+   * @return {Array<PatientInterface>}
    */
-  public getClients(): Observable<Array<ClientInterface>> {
-    const url = `${this.BASE_URL}/employee/client`;
-    return this.http.get<Array<ClientInterface>>(url);
+  public getPatients(): Observable<Array<PatientInterface>> {
+    const url = `${this.BASE_URL}/patient`;
+    return this.http.get<Array<PatientInterface>>(url);
   }
 
   /**
-   * [GET] Fetch single Client details
-   * @param ssn  {string}
-   * @return {ClientInterface}
+   * [GET] Fetch single Patient details
+   * @param username  {string}
+   * @return {PatientInterface}
    */
-  public getClientDetails(ssn: string): Observable<ClientInterface> {
-    const url = `${this.BASE_URL}/employee/client/${ssn}`;
-    return this.http.get<ClientInterface>(url);
+  public getPatientDetails(username: string): Observable<PatientInterface> {
+    const url = `${this.BASE_URL}/patient/${username}`;
+    console.log("getPatient URL = " + url);
+    return this.http.get<PatientInterface>(url);
   }
 
   /**
-   * [PUT] Save client details data
-   * @param clientData {ClientInterface}
+   * [PUT] Save patient details data
+   * @param patientData {PatientInterfacye}
    */
-  public saveClientDetails(clientData: ClientInterface): Observable<ClientInterface> {
-    const url = `${this.BASE_URL}/employee/client/${clientData.ssn}`;
-    return this.http.put<ClientInterface>(url, clientData);
+  public savePatientDetails(patientData: PatientInterface): Observable<PatientInterface> {
+    console.log("Save patient service = " + patientData.name);
+    const url = `${this.BASE_URL}/patient`;
+    return this.http.put<PatientInterface>(url, patientData);
   }
 
   /**
-   * [DELETE] Remove a client
-   * @param ssn {string}
+   * [DELETE] Remove a patient
+   * @param username {string}
    */
-  public deleteClient(ssn: string): Observable<any> {
-    const url = `${this.BASE_URL}/employee/client/${ssn}`;
-    return this.http.delete<ClientInterface>(url);
+  public deletePatient(username: string): Observable<any> {
+    const url = `${this.BASE_URL}/patient/${username}`;
+    return this.http.delete<PatientInterface>(url);
   }
 
   /**
-   * [CREATE] Remove a client
-   * @param ssn {string}
+   * [CREATE] Remove a patient
+   * @param username {string}
    */
-  public createClient(clientData: ClientInterface): Observable<ClientInterface>{
-    const url = `${this.BASE_URL}/employee/client/${clientData.ssn}`;
-    return this.http.put<ClientInterface>(url, clientData);
+  public createPatient(patientData: PatientInterface): Observable<PatientInterface> {
+    const url = `${this.BASE_URL}/patient/${patientData.username}`;
+    return this.http.put<PatientInterface>(url, patientData);
   }
 }

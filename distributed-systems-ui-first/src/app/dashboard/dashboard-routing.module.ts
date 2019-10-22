@@ -19,7 +19,7 @@ const routes: Routes = [
        * eg. http://localhost:4200/ will send the user to http://localhost:4200/clients */
       // { path: '', redirectTo: 'clients', pathMatch: 'full' },
       // /** '/clients' route path configuration */
-      // { path: 'clients', loadChildren: '../client/client.module#ClientModule' },
+      { path: 'patient', loadChildren: '../patient/patient.module#PatientModule' },
       // /** '/admin' route path config */
       // { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' },
       // { path: 'employee', loadChildren: '../admin/admin.module#AdminModule' }

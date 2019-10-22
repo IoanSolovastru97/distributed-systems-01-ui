@@ -17,6 +17,7 @@ export class DashboardHeaderComponent implements OnInit {
     /** On user logout, the authentication token is removed from the browser localStorage */
     this.storageService.remove(this.storageService.app_token);
     this.storageService.remove(this.storageService.role_token);
+    this.storageService.remove(this.storageService.username);
     /** and the user gets redirected to the /login page */
     this.router.navigate(['/login']);
   }

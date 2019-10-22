@@ -5,7 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 /** Application models:
  * needed for making them available across the entire application */
-import { ClientModel } from './shared/models/client.model';
+import { PatientModel } from './shared/models/patient.model';
 
 /** Application routing and starting point */
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
     }),
     AppRoutingModule
   ],
-  providers: [ClientModel],
+  providers: [PatientModel],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

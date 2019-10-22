@@ -3,7 +3,7 @@
  */
 
 // Blue Dark
-$dark-blue: #123985;
+$dark-blue: #43005e;
 
 // Blue
 $blue-1: #001B59;
@@ -50,7 +50,7 @@ $black: #000;
 $primary-text-color: #304550;
 $secondary-text-color: #757575;
 // Border
-$border-color: rgba(0, 0, 0, .15);
+$border-color: rgba(0, 0, 0, 0.15);
 
 $grays: (
   100: $gray-100,
@@ -85,7 +85,7 @@ $colors: (
 );
 
 $theme-colors: (
-  primary: $blue,
+  primary: $green-1,
   secondary: $border-color,
   success: $green,
   info: $cyan,
@@ -93,7 +93,7 @@ $theme-colors: (
   danger: $red,
   light: $gray-100,
   dark: $gray-800,
-  dark-blue: $dark-blue
+  dark-blue: $green-1
 );
 
 // Set a specific jump point for requesting color jumps

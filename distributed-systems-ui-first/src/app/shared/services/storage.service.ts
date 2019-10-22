@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   public app_key = 'health-care';
 
+  public username = 'user';
+
   public role_token = 'role';
   public app_token = `${this.app_key}_token`;
 
@@ -15,8 +17,6 @@ export class StorageService {
    */
   public get(key: string): string {
     const sessionValue = localStorage.getItem(key);
-    console.log("Storage service key = " + key);
-    console.log("Storage service seesionValue = " + sessionValue);
     return sessionValue;
   }
 
