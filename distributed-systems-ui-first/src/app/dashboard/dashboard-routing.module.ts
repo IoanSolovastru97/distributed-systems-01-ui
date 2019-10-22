@@ -14,11 +14,11 @@ const routes: Routes = [
     component: DashboardMainComponent,
     canActivate: [AuthGuard],
     children: [
-      /** The following will automatically redirect to /clients route
+      /** The following will automatically redirect to /patient route
        * whenever the user is logged in and try to go the index (/) route
        * eg. http://localhost:4200/ will send the user to http://localhost:4200/clients */
-      // { path: '', redirectTo: 'clients', pathMatch: 'full' },
-      // /** '/clients' route path configuration */
+      // { path: '', redirectTo: 'patient', pathMatch: 'full' },patient
+      // /** '/patient' route path configuration */
       { path: 'patient', loadChildren: '../patient/patient.module#PatientModule' },
       // /** '/admin' route path config */
       // { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' },
