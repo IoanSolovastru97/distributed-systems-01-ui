@@ -1,18 +1,24 @@
+import { MedicalRecordInterface } from './medicalrecord';
 
 /** Patient Interface */
 
 export interface PatientInterface {
 
-  address: string;
+  username: string;
+
+  password: string;
 
   name: string;
-
-  username: string;
 
   gender: string;
 
   birthdaty: string;
 
-  //TO DO List of medical records
+  address: string;
+
+  role: string;
+  
+  // medicalRecord: MedicalRecordInterface[];
+  medicalRecord: Array<MedicalRecordInterface>;
 
 }

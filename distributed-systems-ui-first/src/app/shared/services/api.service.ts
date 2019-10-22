@@ -18,7 +18,7 @@ export class ApiService {
    * @return {Array<PatientInterface>}
    */
   public getPatients(): Observable<Array<PatientInterface>> {
-    const url = `${this.BASE_URL}/employee/client`;
+    const url = `${this.BASE_URL}/patient`;
     return this.http.get<Array<PatientInterface>>(url);
   }
 
@@ -34,29 +34,30 @@ export class ApiService {
   }
 
   /**
-   * [PUT] Save client details data
-   * @param clientData {PatientInterfacye}
+   * [PUT] Save patient details data
+   * @param patientData {PatientInterfacye}
    */
-  public savePatientDetails(clientData: PatientInterface): Observable<PatientInterface> {
-    const url = `${this.BASE_URL}/employee/client/${clientData.username}`;
-    return this.http.put<PatientInterface>(url, clientData);
+  public savePatientDetails(patientData: PatientInterface): Observable<PatientInterface> {
+    console.log("Save patient service = " + patientData.name);
+    const url = `${this.BASE_URL}/patient`;
+    return this.http.put<PatientInterface>(url, patientData);
   }
 
   /**
-   * [DELETE] Remove a client
+   * [DELETE] Remove a patient
    * @param username {string}
    */
   public deletePatient(username: string): Observable<any> {
-    const url = `${this.BASE_URL}/employee/client/${username}`;
+    const url = `${this.BASE_URL}/patient/${username}`;
     return this.http.delete<PatientInterface>(url);
   }
 
   /**
-   * [CREATE] Remove a client
+   * [CREATE] Remove a patient
    * @param username {string}
    */
-  public createPatient(clientData: PatientInterface): Observable<PatientInterface> {
-    const url = `${this.BASE_URL}/employee/client/${clientData.username}`;
-    return this.http.put<PatientInterface>(url, clientData);
+  public createPatient(patientData: PatientInterface): Observable<PatientInterface> {
+    const url = `${this.BASE_URL}/patient/${patientData.username}`;
+    return this.http.put<PatientInterface>(url, patientData);
   }
 }

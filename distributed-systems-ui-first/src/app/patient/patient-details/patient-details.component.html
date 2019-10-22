@@ -26,35 +26,33 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label class="col-form-label" for="inputLarge">FirstName</label>
+                  <label class="col-form-label" for="inputLarge">First Name</label>
                   <input class="form-control" type="text" name="name" required [(ngModel)]="patientData.name">
                 </div>
               </div>
 
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label class="col-form-label" for="inputLarge">Email</label>
-                  <input class="form-control" type="text" name="email" required [(ngModel)]="patientData.email">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Email</label>
+                    <input class="form-control" type="text" name="username" required [(ngModel)]="patientData.username">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Gender</label>
+                    <input class="form-control" type="text" name="gender" required [(ngModel)]="patientData.gender">
+                  </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="form-group">
-                  <label class="col-form-label" for="inputLarge">Gender</label>
-                  <input class="form-control" type="text" name="gender" required
-                    [(ngModel)]="patientData.gender">
-                </div>
-              </div>
-            </div>
 
-            <div class="col">
-              <div class="form-group">
-                <label class="col-form-label" for="inputLarge">Birthday</label>
-                <input class="form-control" type="text" name="birthday" required
-                  [(ngModel)]="patientData.birthday">
+              <div class="col">
+                <div class="form-group">
+                  <label class="col-form-label" for="inputLarge">Birthday</label>
+                  <input class="form-control" type="text" name="birthday" required [(ngModel)]="patientData.birthday">
+                </div>
               </div>
             </div>
-          </div>
 
             <div class="row">
               <div class="col">
@@ -73,25 +71,20 @@
         <div class="card-footer text-muted">
           <div class="form-inline d-flex">
             <!-- Save -->
-            <button type="button" class="btn btn-primary mr-2" role="button"
-              [disabled]="!hasPatientDataChanged() || isSaving || isRemoving" [ngClass]="{'disabled': !hasPatientDataChanged()}"
-              (click)="onPatientSave()">
-              <i class="fas fa-check mr-2" *ngIf="!isSaving"></i>
-              <i class="fa fa-spinner fa-spin mr-2" *ngIf="isSaving"></i>
-              Save patient
+            <button type="button" class="btn btn-primary mr-2" role="button" (click)="onPatientSave()">
+              Save data
             </button>
             <!-- Cancel -->
-            <button type="button" class="btn btn-outline-primary" role="button" [disabled]="!haspatientDataChanged()"
-              [ngClass]="{'disabled': !hasPatientDataChanged() || isSaving || isRemoving}">
-              <i class="fas fa-times mr-2"></i>
+            <button type="button" class="btn btn-outline-primary" role="button" >
+              <i class=" fas fa-times mr-2"></i>
               Cancel
             </button>
             <!-- Delete -->
-            <button type="button" class="btn btn-danger ml-auto" role="button" [disabled]="isRemoving || isSaving"
+            <!-- <button type="button" class="btn btn-danger ml-auto" role="button" [disabled]="isRemoving || isSaving"
               [ngClass]="{'disabled': isRemoving}" (click)="onPatientRemove()">
               <i class="fas fa-trash" *ngIf="!isRemoving"></i>
               <i class="fa fa-spinner fa-spin" *ngIf="isRemoving"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         <!-- End: Card footer -->

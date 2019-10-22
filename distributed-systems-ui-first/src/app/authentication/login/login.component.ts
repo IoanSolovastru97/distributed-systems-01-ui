@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../shared/services/auth.service';
 import { StorageService } from '../../shared/services/storage.service';
 import { PatientDetailsComponent } from 'src/app/patient/patient-details/patient-details.component';
-import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-login',

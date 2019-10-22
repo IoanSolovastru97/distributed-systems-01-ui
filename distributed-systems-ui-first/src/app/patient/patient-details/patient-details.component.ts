@@ -7,7 +7,6 @@ import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 import { PatientModel } from 'src/app/shared/models/patient.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 
-import { DataService } from 'src/app/shared/services/data.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
 
@@ -18,7 +17,7 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 })
 export class PatientDetailsComponent implements OnInit {
 
-
+    @Input()
     username: string;
 
     @Input()
@@ -27,14 +26,7 @@ export class PatientDetailsComponent implements OnInit {
     @Output()
     onSaveSuccess: EventEmitter<boolean> = new EventEmitter();
 
-    /** Patient data */
     private patientData: PatientInterface;
-    /** Copy of the initial patient data */
-    private _patientData: PatientInterface;
-    /** Flag for letting know the user that save is in progress */
-    private isSaving: boolean;
-    /** Flag for letting know the user that save is in progress */
-    private isRemoving: boolean;
 
     constructor(
         public patientModel: PatientModel,
@@ -63,8 +55,6 @@ export class PatientDetailsComponent implements OnInit {
             (data: PatientInterface) => {
                 /** Saving the obtained patient data into a variable */
                 this.patientData = data;
-                /** Making copy of the initial patient data (for comparing purpose only) */
-                this._patientData = Object.assign({}, this.patientData);
             },
             (error: HttpErrorResponse) => console.error(error)
         );
@@ -75,14 +65,11 @@ export class PatientDetailsComponent implements OnInit {
      * This method is it bind to the `Save Patient` button
      */
     onPatientSave(): void {
-        /** Initialize the isSaving flag */
-        this.isSaving = true;
         /** Trigger the saving method from the API Service passing the patientData*/
         this.apiService.savePatientDetails(this.patientData).subscribe(
             /** On Success */
             (data: PatientInterface) => {
-                /** Update the copy of the initial patient data */
-                this._patientData = data;
+                console.log("Patient saved");
                 /** Notify the parent component to refresf the patient list */
                 this.onSaveSuccess.emit(true);
                 /** Notify the user with a successful message */
@@ -91,28 +78,17 @@ export class PatientDetailsComponent implements OnInit {
             /** On Error */
             (error: HttpErrorResponse) => {
                 /** Notify the user about the error */
-                this.toastr.error(error.message);
+                // this.toastr.error(error.message);
                 /** End the isSaving flag */
-                this.isSaving = false;
             },
-            /** End the isSaving flag */
-            () => (this.isSaving = false)
         );
     }
 
 
-    /**
-     * Will determinate if the data has been changed or not
-     * Buttons will remaing disabled if not change has happened
-     */
-    hasPatientDataChanged(): boolean {
-        return JSON.stringify(this.patientData) !== JSON.stringify(this._patientData);
-    }
 
     /** This method will clear the `patientData` value and `_patientData` copy value */
     clearComponentData(): void {
         this.patientData = undefined;
-        this._patientData = undefined;
     }
 
 }
