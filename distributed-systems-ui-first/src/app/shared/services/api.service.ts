@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { PatientInterface } from '../models/interfaces/patient';
 import { CaregiverInterface } from '../models/interfaces/caregiver';
+import { DoctorInterface } from '../models/interfaces/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -75,5 +76,21 @@ export class ApiService {
     return this.http.get<CaregiverInterface>(url);
   }
 
+  //Doctor
+  public getDoctorDetails(username: string): Observable<DoctorInterface> {
+    const url = `${this.BASE_URL}/doctor/${username}`;
+    console.log("getCaregiver URL = " + url);
+    return this.http.get<DoctorInterface>(url);
+  }
+
+  /**
+   * [PUT] Save doctor details data
+   * @param doctorData {DoctorInterfacye}
+   */
+  public saveDoctorDetails(doctorData: DoctorInterface): Observable<DoctorInterface> {
+    console.log("Save doctor service = " + doctorData.name);
+    const url = `${this.BASE_URL}/doctor`;
+    return this.http.put<DoctorInterface>(url, doctorData);
+  }
   
 }

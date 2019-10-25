@@ -81,6 +81,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           if(this.storageService.get(this.storageService.role_token) === 'ROLE_CAREGIVER'){
             this.router.navigate(['/caregiver'])
           }
+          if(this.storageService.get(this.storageService.role_token) === 'ROLE_DOCTOR'){
+            this.router.navigate(['/doctor'])
+          }
           //  this.router.navigatde(['/']);
         },
         (error: HttpErrorResponse) => {

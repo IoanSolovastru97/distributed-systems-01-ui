@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { CaregiverInterface } from 'src/app/shared/models/interfaces/caregiver';
 import { HttpErrorResponse } from '@angular/common/http';
+import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 
 @Component({
   selector: 'app-caregiver',
@@ -38,5 +39,21 @@ export class CaregiverComponent implements OnInit {
     );
 
   }
+
+
+  // onPatientEdit(patient: PatientInterface) {
+  //   console.log("On patient edit patient = " + patient.username);
+
+  // }
+
+  // onPatientRemove(patient: PatientInterface) {
+  //   console.log("On patient remove patient = " + patient.username);
+  //   this.apiService.getCaregiverDetails(patient.username).subscribe(
+  //     (data: CaregiverInterface) => {
+  //       this.caregiverData = data;
+  //     },
+  //     (error: HttpErrorResponse) => console.error(error)
+  //   );
+  // }
 
 }

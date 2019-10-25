@@ -26,7 +26,4 @@ export class DashboardHeaderComponent implements OnInit {
     return this.storageService.get(this.storageService.role_token) === 'ROLE_DOCTOR';
   }
 
-  isAdmin(){
-    return this.storageService.get(this.storageService.role_token) === 'ROLE_ADMIN';
-  }
 }

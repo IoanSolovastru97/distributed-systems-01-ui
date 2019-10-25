@@ -1,0 +1,82 @@
+<div class="row justify-content-center mt-4">
+        <div class="col">
+          <div class="card border-secondary">
+      
+            <!-- Card Header: holding the doctor's name -->
+            <h4 class="card-header bg-secondary">
+              {{ doctorData.name }}
+            </h4>
+            <!-- End: Card Header -->
+      
+            <!-- Card Body: holding the editable doctor fields -->
+            <div class="card-body">
+              <div class="my-4">
+      
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label class="col-form-label" for="inputLarge">First Name</label>
+                      <input class="form-control" type="text" name="name" required [(ngModel)]="doctorData.name">
+                    </div>
+                  </div>
+      
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="col-form-label" for="inputLarge">Email</label>
+                        <input class="form-control" type="text" name="username" required [(ngModel)]="doctorData.username">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label class="col-form-label" for="inputLarge">Gender</label>
+                        <input class="form-control" type="text" name="gender" required [(ngModel)]="doctorData.gender">
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="col">
+                    <div class="form-group">
+                      <label class="col-form-label" for="inputLarge">Birthday</label>
+                      <input class="form-control" type="text" name="birthday" required [(ngModel)]="doctorData.birthday">
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label class="col-form-label" for="inputLarge">Address</label>
+                      <input class="form-control" type="text" name="address" required [(ngModel)]="doctorData.address">
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+            <!-- End: Card Body -->
+      
+            <!-- Card footer: holding the Save / Cancel and Delete button for single doctor data -->
+            <div class="card-footer text-muted">
+              <div class="form-inline d-flex">
+                <!-- Save -->
+                <button type="button" class="btn btn-primary mr-2" role="button" (click)="onDoctorSave()">
+                  Save data
+                </button>
+                <!-- Cancel -->
+                <button type="button" class="btn btn-outline-primary" role="button">
+                  <i class=" fas fa-times mr-2"></i>
+                  Cancel
+                </button>
+                <!-- Delete -->
+                <!-- <button type="button" class="btn btn-danger ml-auto" role="button" [disabled]="isRemoving || isSaving"
+                    [ngClass]="{'disabled': isRemoving}" (click)="onDoctorRemove()">
+                    <i class="fas fa-trash" *ngIf="!isRemoving"></i>
+                    <i class="fa fa-spinner fa-spin" *ngIf="isRemoving"></i>
+                  </button> -->
+              </div>
+            </div>
+            <!-- End: Card footer -->
+          </div>
+        </div>
+      </div>
