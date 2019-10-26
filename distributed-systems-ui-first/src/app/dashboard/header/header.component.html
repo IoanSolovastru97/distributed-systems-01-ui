@@ -20,14 +20,14 @@
       </li>
 
       <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
-          <a class="nav-link" routerLink="/doctor">
+          <a class="nav-link" routerLink="/doctor/caregiver">
             <i class="fas fa-user-nurse margin--right__xs"></i>
             Caregivers
           </a>
       </li>
       
       <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
-          <a class="nav-link" routerLink="/doctor">
+          <a class="nav-link" routerLink="/doctor/medicalplan">
             <i class="fas fa-file-medical margin--right__xs"></i>
             Medication Plan
           </a>

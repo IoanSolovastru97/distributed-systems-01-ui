@@ -24,6 +24,8 @@ const routes: Routes = [
       { path: 'caregiver', loadChildren: '../caregiver/caregiver.module#CaregiverModule' },
       { path: 'doctor', loadChildren: '../doctor/doctor.module#DoctorModule' },
       { path: 'doctor/patient', loadChildren: '../doctor/doctor-patient/doctor-patient.module#DoctorPatientModule' },
+      { path: 'doctor/caregiver', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver.module#DoctorCaregiverModule' },
+      { path: 'doctor/medicalplan', loadChildren: '../doctor/doctor-medicalplan/doctor-medicalplan.module#DoctorMedicalplanModule' },
       // { path: 'employee', loadChildren: '../admin/admin.module#AdminModule' }
     ]
   }
