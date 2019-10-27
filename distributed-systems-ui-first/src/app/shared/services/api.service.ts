@@ -13,7 +13,20 @@ export class ApiService {
   /** API Common URL for all end points */
   public BASE_URL: string = 'http://localhost:8080/healthcare';
 
+  public currentPatient: PatientInterface;
+
+
   constructor(private http: HttpClient) { }
+
+  // public setCurrentPatient(patient: PatientInterface) {
+  //   this.currentPatient = patient;
+  //   console.log("set data: ", patient, "current", this.currentPatient);
+  // }
+
+  // public getCurrentPatient() {
+  //   console.log(this.currentPatient, 'dsadasd')
+  //   return this.currentPatient;
+  // }
 
   /**
    * [GET] Fetch the list of Patients
@@ -65,11 +78,11 @@ export class ApiService {
   }
 
   //Caregiver
-    /**
-   * [GET] Fetch single Patient details
-   * @param username  {string}
-   * @return {PatientInterface}
-   */
+  /**
+ * [GET] Fetch single Patient details
+ * @param username  {string}
+ * @return {PatientInterface}
+ */
   public getCaregiverDetails(username: string): Observable<CaregiverInterface> {
     const url = `${this.BASE_URL}/caregiver/${username}`;
     console.log("getCaregiver URL = " + url);
@@ -92,5 +105,6 @@ export class ApiService {
     const url = `${this.BASE_URL}/doctor`;
     return this.http.put<DoctorInterface>(url, doctorData);
   }
-  
+
+
 }

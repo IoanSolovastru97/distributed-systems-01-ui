@@ -1,7 +1,7 @@
 import { PatientInterface } from './patient';
 import { MedicalRecordInterface } from './medicalrecord';
 
-export interface DoctorInterface {
+export class DoctorInterface {
     
     username: string;
 

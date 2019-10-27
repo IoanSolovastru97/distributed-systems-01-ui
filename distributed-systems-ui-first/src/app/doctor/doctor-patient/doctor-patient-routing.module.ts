@@ -9,7 +9,7 @@ import { DoctorPatientComponent } from './doctor-patient/doctor-patient.componen
 /** Module components */
 
 const routes: Routes = [
-  { path: '', component: DoctorPatientComponent, canActivate: [AuthGuard] }
+  { path: '', component: DoctorPatientComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -4,6 +4,8 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DoctorInterface } from 'src/app/shared/models/interfaces/doctor';
+import { Router } from '@angular/router';
+import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 
 @Component({
   selector: 'app-DoctorPatient',
@@ -12,54 +14,47 @@ import { DoctorInterface } from 'src/app/shared/models/interfaces/doctor';
 })
 export class DoctorPatientComponent implements OnInit {
 
-  @Input()
-  username: string;
+  private router: Router;
+  private apiService: ApiService
 
-  private doctorData: DoctorInterface;
+  public doctorData: DoctorInterface = new DoctorInterface();
+  public patients: Array<PatientInterface> = new Array<PatientInterface>();
 
   constructor(
-      private apiService: ApiService,
-      private storageService: StorageService,
-      private toastr: ToastrService) {
+    apiService: ApiService,
+    router: Router,
+    private storageService: StorageService,
+    private toastr: ToastrService) {
+    this.router = router;
+    this.apiService = apiService;
   }
 
   ngOnInit(): void {
+    console.log(this.storageService.get(this.storageService.username));
+    this.getDoctorDetails(this.storageService.get(this.storageService.username));
   }
 
-//   /**
-//    * Requesting doctor details data through the API Service
-//    * @param username  {string}
-//    */
-//   getDoctorPatientDetailsData(username: string): void {
-//       console.log("getDoctorPatient username = " + username);
-//       this.apiService.getDoctorPatientDetails(username).subscribe(
-//           (data: DoctorInterface) => {
-//               /** Saving the obtained doctor data into a variable */
-//               this.doctorData = data;
-//           },
-//           (error: HttpErrorResponse) => console.error(error)
-//       );
-//   }
+  /**
+   * Requesting doctor details data through the API Service
+   * @param username  {string}
+   */
+  public getDoctorDetails(username: string): void {
+    console.log("getDoctorPatient username = " + username);
+    this.apiService.getDoctorDetails(username).subscribe(
+      (data: DoctorInterface) => {
+        /** Saving the obtained doctor data into a variable */
+        this.doctorData = data;
+        this.patients = data.patients;
+        console.log(data, "data");
+      },
+      (error: HttpErrorResponse) => console.error(error)
+    );
+  }
 
-//   /**
-//    * Will submit the doctor data if has been changed
-//    * This method is it bind to the `Save DoctorPatient` button
-//    */
-//   onDoctorPatientSave(): void {
-//       /** Trigger the saving method from the API Service passing the doctorData*/
-//       this.apiService.saveDoctorPatientDetails(this.doctorData).subscribe(
-//           /** On Success */
-//           (data: DoctorPatientInterface) => {
-//               console.log("DoctorPatient saved");
-//               /** Notify the parent component to refresf the doctor list */
-//           },
-//           /** On Error */
-//           (error: HttpErrorResponse) => {
-//               /** Notify the user about the error */
-//               // this.toastr.error(error.message);
-//               /** End the isSaving flag */
-//           },
-//       );
-//   }
+
+  public onPatientEdit(patient: PatientInterface): void {
+    console.log(patient.username, "username")
+    this.storageService.set("patient", patient.username);
+  }
 
 }

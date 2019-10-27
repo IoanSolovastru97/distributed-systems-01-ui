@@ -2,7 +2,7 @@ import { MedicalRecordInterface } from './medicalrecord';
 
 /** Patient Interface */
 
-export interface PatientInterface {
+export class PatientInterface {
 
   username: string;
 

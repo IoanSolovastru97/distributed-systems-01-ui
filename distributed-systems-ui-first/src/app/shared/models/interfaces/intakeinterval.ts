@@ -1,4 +1,4 @@
-export interface IntakeIntervalInterface {
+export class IntakeIntervalInterface {
     
     id: number;
 

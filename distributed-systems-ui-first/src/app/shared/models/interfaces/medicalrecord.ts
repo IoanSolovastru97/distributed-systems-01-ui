@@ -3,7 +3,7 @@ import { DoctorInterface } from './doctor';
 import { DrugInterface } from './drug';
 import { IntakeIntervalInterface } from './intakeinterval';
 
-export interface MedicalRecordInterface {
+export class MedicalRecordInterface {
     
     id: string;
 

@@ -1,0 +1,74 @@
+<div class="card-body">
+    <div class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Email</label>
+                    <input class="form-control" type="text" name="username" required [(ngModel)]="patientData.username">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Password</label>
+                    <input class="form-control" type="password" name="password" required
+                        [(ngModel)]="patientData.password">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Name</label>
+                    <input class="form-control" type="text" name="name" required [(ngModel)]="patientData.name">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputLarge">Gender</label>
+                        <select class="form-control" [(ngModel)]="patientData.gender">
+                            <!-- <input class="form-control" type="text" name="gender" required > -->
+                            <option>MALE</option>
+                            <option>FEMALE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Birthday</label>
+                    <input class="form-control" type="text" name="birthday" [(ngModel)]="patientData.birthday">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Address</label>
+                    <input class="form-control" type="text" name="address" required [(ngModel)]="patientData.address">
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="card-footer text-muted">
+    <div class="form-inline d-flex">
+        <button type="button" class="btn btn-outline-primary btn-save" (click)="onPatientSave()">
+            Save Patient
+        </button>
+        <button type="button" class="btn btn-outline-primary " (click)="onPatientCancel()">
+            <i class=" fas fa-times mr-2"></i>
+            Cancel
+        </button>
+    </div>
+</div>

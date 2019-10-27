@@ -1,6 +1,6 @@
 import { PatientInterface } from './patient';
 
-export interface CaregiverInterface {
+export class CaregiverInterface {
 
     username: string;
 
