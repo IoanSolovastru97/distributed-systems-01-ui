@@ -7,6 +7,7 @@ export class StorageService {
 
   public username = 'user';
   public patient = 'patient';
+  public caregiver = 'caregiver';
 
   public role_token = 'role';
   public app_token = `${this.app_key}_token`;

@@ -75,7 +75,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.storageService.set(this.storageService.role_token, response.authorities[0].authority);
           console.log("Aut role = " + this.storageService.get(this.storageService.role_token));
           if (this.storageService.get(this.storageService.role_token) === 'ROLE_PATIENT') {
-
             this.router.navigate(['/patient'])
           }
           if(this.storageService.get(this.storageService.role_token) === 'ROLE_CAREGIVER'){

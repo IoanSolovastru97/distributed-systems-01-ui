@@ -13,20 +13,7 @@ export class ApiService {
   /** API Common URL for all end points */
   public BASE_URL: string = 'http://localhost:8080/healthcare';
 
-  public currentPatient: PatientInterface;
-
-
   constructor(private http: HttpClient) { }
-
-  // public setCurrentPatient(patient: PatientInterface) {
-  //   this.currentPatient = patient;
-  //   console.log("set data: ", patient, "current", this.currentPatient);
-  // }
-
-  // public getCurrentPatient() {
-  //   console.log(this.currentPatient, 'dsadasd')
-  //   return this.currentPatient;
-  // }
 
   /**
    * [GET] Fetch the list of Patients
@@ -106,6 +93,17 @@ export class ApiService {
     return this.http.put<DoctorInterface>(url, doctorData);
   }
 
+  
+  /**
+   * [PUT] Create caregiver details data
+   * @param caregiverData {CaregiverInterfacye}
+   */
+  public createCaregiverDoctor(caregiverData: CaregiverInterface): Observable<CaregiverInterface> {
+    console.log("Save caregiver service = " + caregiverData.name);
+    const url = `${this.BASE_URL}/doctor/caregiver`;
+    return this.http.post<CaregiverInterface>(url, caregiverData);
+  }
+
   /**
    * [PUT] Save doctor patient details data
    * @param patient {DoctorInterfacye}
@@ -117,6 +115,16 @@ export class ApiService {
   }
 
   /**
+   * [PUT] Save doctor caregiver details data
+   * @param caregiver {CaregiverInterfacye}
+   */
+  public saveCaregiverDetailsDoctor(caregiverData: CaregiverInterface): Observable<CaregiverInterface> {
+    console.log("Save doctor caregiver service = " + caregiverData.name);
+    const url = `${this.BASE_URL}/doctor/caregiver`;
+    return this.http.put<CaregiverInterface>(url, caregiverData);
+  }
+
+  /**
    * [DELETE] Remove a patient
    * @param username {string}
    */
@@ -125,5 +133,19 @@ export class ApiService {
     return this.http.delete<PatientInterface>(url);
   }
 
+  /**
+   * [DELETE] Remove a caregiver
+   * @param username {string}
+   */
+  public deleteCaregiverDoctor(username: string): Observable<any> {
+    const url = `${this.BASE_URL}/doctor/caregiver/${username}`;
+    return this.http.delete<CaregiverInterface>(url);
+  }
+
+  public getCaregiversDoctor(username: string): Observable<Array<CaregiverInterface>> {
+    const url = `${this.BASE_URL}/doctor/caregiver`;
+    console.log("getCaregiver URL = " + url);
+    return this.http.get<Array<CaregiverInterface>>(url);
+  }
 
 }

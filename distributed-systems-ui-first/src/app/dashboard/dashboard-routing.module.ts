@@ -27,6 +27,9 @@ const routes: Routes = [
       { path: 'doctor/patient/create', loadChildren: '../doctor/doctor-patient/doctor-patient-create/doctor-patient-create.module#DoctorPatientCreateModule' },
       { path: 'doctor/patient/edit', loadChildren: '../doctor/doctor-patient/doctor-patient-edit/doctor-patient-edit.module#DoctorPatientEditModule' },
       { path: 'doctor/caregiver', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver.module#DoctorCaregiverModule' },
+      { path: 'doctor/caregiver/create', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver-create/doctor-caregiver-create.module#DoctorCaregiverCreateModule' },
+      { path: 'doctor/caregiver/edit', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver-edit/doctor-caregiver-edit.module#DoctorCaregiverEditModule' },
+      { path: 'doctor/caregiver', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver.module#DoctorCaregiverModule' },
       { path: 'doctor/medicalplan', loadChildren: '../doctor/doctor-medicalplan/doctor-medicalplan.module#DoctorMedicalplanModule' },
       // { path: 'employee', loadChildren: '../admin/admin.module#AdminModule' }
     ]

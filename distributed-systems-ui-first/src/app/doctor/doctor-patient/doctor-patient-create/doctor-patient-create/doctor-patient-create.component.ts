@@ -38,6 +38,7 @@ export class DoctorPatientCreateComponent {
       /** On Success */
       (data: PatientInterface) => {
         console.log("Patient saved");
+        this.router.navigate(['/doctor/patient'])
       },
       /** On Error */
       (error: HttpErrorResponse) => {
@@ -49,7 +50,6 @@ export class DoctorPatientCreateComponent {
   }
 
   public onPatientCancel(): void {
-    console.log("manuela");
     this.router.navigate(['/doctor/patient'])
   }
 
