@@ -1,14 +1,9 @@
 <div class="row justify-content-center mt-4">
         <div class="col">
           <div class="card border-secondary">
-      
-            <!-- Card Header: holding the doctor's name -->
             <h4 class="card-header bg-secondary">
               {{ doctorData.name }}
             </h4>
-            <!-- End: Card Header -->
-      
-            <!-- Card Body: holding the editable doctor fields -->
             <div class="card-body">
               <div class="my-4">
       
@@ -30,7 +25,10 @@
                     <div class="col">
                       <div class="form-group">
                         <label class="col-form-label" for="inputLarge">Gender</label>
-                        <input class="form-control" type="text" name="gender" required [(ngModel)]="doctorData.gender">
+                        <select class="form-control" [(ngModel)]="doctorData.gender">
+                            <option>MALE</option>
+                            <option>FEMALE</option>
+                        </select>
                       </div>
                     </div>
                   </div>

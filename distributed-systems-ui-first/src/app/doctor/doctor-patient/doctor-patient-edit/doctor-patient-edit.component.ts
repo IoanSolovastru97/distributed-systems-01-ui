@@ -26,7 +26,7 @@ export class DoctorPatientEdit implements OnInit {
 
 
     ngOnInit(): void {
-        this.getPatientDetailsData(this.storageService.get(this.storageService.username));
+        this.getPatientDetailsData(this.storageService.get(this.storageService.patient));
     }
 
     /**
@@ -43,5 +43,41 @@ export class DoctorPatientEdit implements OnInit {
             (error: HttpErrorResponse) => console.error(error)
         );
     }
+
+    /**
+ * Will submit the patient data if has been changed
+ * This method is it bind to the `Save Patient` button
+ */
+    onPatientSave(): void {
+        /** Trigger the saving method from the API Service passing the patientData*/
+        this.apiService.savePatientDetailsDoctor(this.patientData).subscribe(
+            /** On Success */
+            (data: PatientInterface) => {
+                console.log("Patient saved");
+                /** Notify the parent component to refresf the patient list */
+            },
+            /** On Error */
+            (error: HttpErrorResponse) => {
+                /** Notify the user about the error */
+                // this.toastr.error(error.message);
+                /** End the isSaving flag */
+            },
+        );
+    }
+
+
+    onPatientCancel(): void {
+        this.router.navigate(['/doctor/patient']);
+    }
+
+    onPatientRemove(): void {
+        console.log("On patient remove patient = " + this.patientData.username);
+        this.apiService.deletePatientDoctor(this.patientData.username).subscribe(
+        ()=>{},
+          (error: HttpErrorResponse) => console.error(error)
+        );
+        this.router.navigate(['/doctor/patient']);
+    }
+
 
 }

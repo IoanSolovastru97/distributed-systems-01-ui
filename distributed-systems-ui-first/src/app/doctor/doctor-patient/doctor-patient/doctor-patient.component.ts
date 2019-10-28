@@ -54,7 +54,15 @@ export class DoctorPatientComponent implements OnInit {
 
   public onPatientEdit(patient: PatientInterface): void {
     console.log(patient.username, "username")
-    this.storageService.set("patient", patient.username);
+  }
+
+  public onPatientRemove(patientData: PatientInterface): void {
+    console.log("On patient remove patient = " + patientData.username);
+    this.apiService.deletePatientDoctor(patientData.username).subscribe(
+      () => { },
+      (error: HttpErrorResponse) => console.error(error)
+    );
+    this.router.navigate(['/doctor/patient']);
   }
 
 }

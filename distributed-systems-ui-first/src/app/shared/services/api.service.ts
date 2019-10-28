@@ -106,5 +106,24 @@ export class ApiService {
     return this.http.put<DoctorInterface>(url, doctorData);
   }
 
+  /**
+   * [PUT] Save doctor patient details data
+   * @param patient {DoctorInterfacye}
+   */
+  public savePatientDetailsDoctor(patientData: PatientInterface): Observable<PatientInterface> {
+    console.log("Save doctor patient service = " + patientData.name);
+    const url = `${this.BASE_URL}/doctor/patient`;
+    return this.http.put<PatientInterface>(url, patientData);
+  }
+
+  /**
+   * [DELETE] Remove a patient
+   * @param username {string}
+   */
+  public deletePatientDoctor(username: string): Observable<any> {
+    const url = `${this.BASE_URL}/doctor/patient/${username}`;
+    return this.http.delete<PatientInterface>(url);
+  }
+
 
 }
