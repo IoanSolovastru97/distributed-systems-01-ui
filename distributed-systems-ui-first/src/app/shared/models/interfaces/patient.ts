@@ -1,4 +1,4 @@
-import { MedicalRecordInterface } from './medicalrecord';
+import { MedicalrecordInterface } from './medicalrecord';
 
 /** Patient Interface */
 
@@ -19,6 +19,6 @@ export class PatientInterface {
   role: string;
 
   // medicalRecord: MedicalRecordInterface[];
-  medicalRecord: Array<MedicalRecordInterface>;
+  medicalRecord: Array<MedicalrecordInterface>;
 
 }

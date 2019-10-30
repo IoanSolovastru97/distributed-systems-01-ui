@@ -72,7 +72,7 @@ export class DoctorPatientEdit implements OnInit {
 
     onPatientRemove(): void {
         console.log("On patient remove patient = " + this.patientData.username);
-        this.apiService.deletePatientDoctor(this.patientData.username).subscribe(
+        this.apiService.deletePatientDoctor(this.patientData).subscribe(
         ()=>{},
           (error: HttpErrorResponse) => console.error(error)
         );

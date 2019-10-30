@@ -42,7 +42,6 @@ export class DoctorCaregiverComponent implements OnInit {
     console.log("getDoctorCaregiver username = " + username);
     this.apiService.getDoctorDetails(username).subscribe(
       (data: DoctorInterface) => {
-        /** Saving the obtained doctor data into a variable */
         this.doctorData = data;
         console.log(data, "data");
       },
@@ -55,17 +54,17 @@ export class DoctorCaregiverComponent implements OnInit {
       },
       (error: HttpErrorResponse) => console.error(error)
     );
-    
+
   }
 
 
   public onCaregiverEdit(caregiver: CaregiverInterface): void {
-    console.log(caregiver.username, "username")
+    this.storageService.set(this.storageService.caregiver, caregiver.username);
   }
 
   public onCaregiverRemove(caregiverData: CaregiverInterface): void {
     console.log("On caregiver remove caregiver = " + caregiverData.username);
-    this.apiService.deleteCaregiverDoctor(caregiverData.username).subscribe(
+    this.apiService.deleteCaregiverDoctor(caregiverData).subscribe(
       () => { },
       (error: HttpErrorResponse) => console.error(error)
     );

@@ -51,18 +51,12 @@ export class PatientDetailsComponent implements OnInit {
      * This method is it bind to the `Save Patient` button
      */
     onPatientSave(): void {
-        /** Trigger the saving method from the API Service passing the patientData*/
+        console.log("patient save", this.patientData.gender);
         this.apiService.savePatientDetails(this.patientData).subscribe(
-            /** On Success */
             (data: PatientInterface) => {
                 console.log("Patient saved");
-                /** Notify the parent component to refresf the patient list */
             },
-            /** On Error */
             (error: HttpErrorResponse) => {
-                /** Notify the user about the error */
-                // this.toastr.error(error.message);
-                /** End the isSaving flag */
             },
         );
     }

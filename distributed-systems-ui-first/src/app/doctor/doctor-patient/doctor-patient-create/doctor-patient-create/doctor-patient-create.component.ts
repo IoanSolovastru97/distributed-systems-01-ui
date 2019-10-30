@@ -33,24 +33,22 @@ export class DoctorPatientCreateComponent {
     console.log(this.patientData.password);
     console.log(this.patientData.gender);
     console.log(this.patientData.address);
-    /** Trigger the saving method from the API Service passing the patientData*/
-    this.apiService.savePatientDetails(this.patientData).subscribe(
+    
+    this.apiService.createPatientDoctor(this.patientData).subscribe(
       /** On Success */
-      (data: PatientInterface) => {
+      (data: String) => {
         console.log("Patient saved");
-        this.router.navigate(['/doctor/patient'])
+        
       },
       /** On Error */
       (error: HttpErrorResponse) => {
-        /** Notify the user about the error */
-        // this.toastr.error(error.message);
-        /** End the isSaving flag */
       },
     );
+    this.router.navigate(['/doctor/patient']);
   }
 
   public onPatientCancel(): void {
-    this.router.navigate(['/doctor/patient'])
+    this.router.navigate(['/doctor/patient']);
   }
 
 }

@@ -26,6 +26,7 @@ export class DoctorCaregiverEdit implements OnInit {
 
 
     ngOnInit(): void {
+        console.log("Caregiver",this.storageService.get(this.storageService.caregiver));
         this.getCaregiverDetailsData(this.storageService.get(this.storageService.caregiver));
     }
 
@@ -72,7 +73,7 @@ export class DoctorCaregiverEdit implements OnInit {
 
     onCaregiverRemove(): void {
         console.log("On caregiver remove caregiver = " + this.caregiverData.username);
-        this.apiService.deleteCaregiverDoctor(this.caregiverData.username).subscribe(
+        this.apiService.deleteCaregiverDoctor(this.caregiverData).subscribe(
         ()=>{},
           (error: HttpErrorResponse) => console.error(error)
         );

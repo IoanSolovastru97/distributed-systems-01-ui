@@ -32,7 +32,17 @@ export class DoctorPatientComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.storageService.get(this.storageService.username));
     this.getDoctorDetails(this.storageService.get(this.storageService.username));
+    this.getAllPatientsDoctor();
   }
+  getAllPatientsDoctor() {
+    this.apiService.getAllPatientsDoctor().subscribe(
+      (data: Array<PatientInterface>) => {
+        /** Saving the obtained doctor data into a variable */
+        this.patients = data;
+        console.log(data, "data");
+      },
+      (error: HttpErrorResponse) => console.error(error)
+    );  }
 
   /**
    * Requesting doctor details data through the API Service
@@ -44,7 +54,6 @@ export class DoctorPatientComponent implements OnInit {
       (data: DoctorInterface) => {
         /** Saving the obtained doctor data into a variable */
         this.doctorData = data;
-        this.patients = data.patients;
         console.log(data, "data");
       },
       (error: HttpErrorResponse) => console.error(error)
@@ -58,7 +67,7 @@ export class DoctorPatientComponent implements OnInit {
 
   public onPatientRemove(patientData: PatientInterface): void {
     console.log("On patient remove patient = " + patientData.username);
-    this.apiService.deletePatientDoctor(patientData.username).subscribe(
+    this.apiService.deletePatientDoctor(patientData).subscribe(
       () => { },
       (error: HttpErrorResponse) => console.error(error)
     );

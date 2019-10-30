@@ -36,21 +36,19 @@ export class DoctorCaregiverCreateComponent {
     /** Trigger the saving method from the API Service passing the caregiverData*/
     this.apiService.createCaregiverDoctor(this.caregiverData).subscribe(
       /** On Success */
-      (data: CaregiverInterface) => {
-        console.log("Caregiver saved");
-        this.router.navigate(['/doctor/caregiver'])
+      (data: String) => {
+        console.log("Caregiver saved", data);
+        
       },
       /** On Error */
       (error: HttpErrorResponse) => {
-        /** Notify the user about the error */
-        // this.toastr.error(error.message);
-        /** End the isSaving flag */
       },
     );
+    this.router.navigate(['/doctor/caregiver']);
   }
 
   public onCaregiverCancel(): void {
-    this.router.navigate(['/doctor/caregiver'])
+    this.router.navigate(['/doctor/caregiver']);
   }
 
 }

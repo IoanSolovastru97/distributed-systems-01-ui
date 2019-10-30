@@ -1,5 +1,5 @@
 import { PatientInterface } from './patient';
-import { MedicalRecordInterface } from './medicalrecord';
+import { MedicalrecordInterface } from './medicalrecord';
 
 export class DoctorInterface {
     
@@ -19,5 +19,5 @@ export class DoctorInterface {
 
     patients: Array<PatientInterface>;
 
-    medicalRecord: Array<MedicalRecordInterface>;
+    medicalRecord: Array<MedicalrecordInterface>;
 }

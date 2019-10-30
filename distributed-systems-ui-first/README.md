@@ -50,7 +50,11 @@ Navigate to `http://127.0.0.1:4200/`. The app will automatically reload if you c
 │   │
 │   │   ├── authentication  #Authentication Module (include login component)
 │   │   │
-│   │   ├── client          #Client Module (include clien list/details components)
+│   │   ├── doctor          #Doctor Module 
+│   │   │
+│   │   ├── patient         #Patient Module 
+│   │   │
+│   │   ├── caregiver       #Caregiver Module 
 │   │   │
 │   │   ├── dashboard       #Dahsboard Module (include the application layout: header/main component)
 │   │   │
@@ -71,16 +75,3 @@ Navigate to `http://127.0.0.1:4200/`. The app will automatically reload if you c
 │
 ├── tsconfig.json
 └── tslint.json
-```
-
-### Generating new modules, components, Directives, Pipes and Services:
-
-You cans use the `ng generate` (or just `ng g`) command to generate new components. Check out the [documentation](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
-
-## Further help
-
-To get more help on the Angular CLI use:
-
-* `ng help` from the command line
-* go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md)
-* and also the [Ultimate Angular CLI Guide](https://www.sitepoint.com/ultimate-angular-cli-reference/) from SitePoint

@@ -14,12 +14,12 @@ import { SharedComponentsModule } from '../../shared/components/shared-component
 
 /** Module routing and avialable components (at the same module level) */
 import { FormsModule } from '@angular/forms';
-import { DoctorMedicalplanRoutingModule } from './doctor-medicalplan-routing.module';
-import { DoctorMedicalplanComponent } from './doctor-medicalplan/doctor-medicalplan.component';
+import { DoctorMedicalrecordComponent } from './doctor-medicalrecord/doctor-medicalrecord.component';
+import { DoctorMedicalrecordRoutingModule } from './doctor-medicalrecord-routing.module';
 
 @NgModule({
-  declarations: [DoctorMedicalplanComponent],
-  imports: [CommonModule, FormsModule, DoctorMedicalplanRoutingModule, SharedComponentsModule],
+  declarations: [DoctorMedicalrecordComponent],
+  imports: [CommonModule, FormsModule, DoctorMedicalrecordRoutingModule, SharedComponentsModule],
   providers: [
     ApiService,
     AuthGuard,
@@ -33,4 +33,4 @@ import { DoctorMedicalplanComponent } from './doctor-medicalplan/doctor-medicalp
   ]
 })
 
-export class DoctorMedicalplanModule { }
+export class DoctorMedicalrecordModule { }
