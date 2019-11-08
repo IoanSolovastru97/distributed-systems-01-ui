@@ -13,8 +13,8 @@ export class MedicalrecordInterface {
 
     period: string;
 
-    drugs: Array<DrugInterface>;
+    drugs: DrugInterface[];
 
-    intakeIntervals: Array<IntakeIntervalInterface>;
+    intakeIntervals: IntakeIntervalInterface[];
 
 }

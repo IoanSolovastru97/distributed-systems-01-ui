@@ -47,9 +47,6 @@ export class DoctorMedicalrecordCreateComponent implements OnInit {
       },
       /** On Error */
       (error: HttpErrorResponse) => {
-        /** Notify the user about the error */
-        // this.toastr.error(error.message);
-        /** End the isSaving flag */
       },
     );
 
@@ -60,9 +57,6 @@ export class DoctorMedicalrecordCreateComponent implements OnInit {
       },
       /** On Error */
       (error: HttpErrorResponse) => {
-        /** Notify the user about the error */
-        // this.toastr.error(error.message);
-        /** End the isSaving flag */
       },
     );
   }
@@ -97,16 +91,14 @@ export class DoctorMedicalrecordCreateComponent implements OnInit {
     this.findDoctor();
     this.findPatient();
 
-    this.medicalrecordData.drugs = new Array<DrugInterface>();
-    this.medicalrecordData.drugs.push(saveDrug);
-    this.medicalrecordData.intakeIntervals = new Array<IntakeIntervalInterface>();
-    this.medicalrecordData.intakeIntervals.push(saveIntakeInterval);
+    this.medicalrecordData.drugs = [saveDrug];
+    this.medicalrecordData.intakeIntervals = [saveIntakeInterval];
 
     console.log("createMedicalrecordDetails()", this.medicalrecordData);
     console.log("createMedicalrecordDetails() patient", this.medicalrecordData.patient);
     console.log("createMedicalrecordDetails() doctor", this.medicalrecordData.doctor);
-    console.log("******",saveDrug.id);
-    console.log("******",saveIntakeInterval.id);
+    console.log("******", saveDrug.id);
+    console.log("******", saveIntakeInterval.id);
     this.apiService.createMedicalrecordDetails(this.medicalrecordData).subscribe(
       (data: number) => {
         console.log("Medicalrecord saved");
