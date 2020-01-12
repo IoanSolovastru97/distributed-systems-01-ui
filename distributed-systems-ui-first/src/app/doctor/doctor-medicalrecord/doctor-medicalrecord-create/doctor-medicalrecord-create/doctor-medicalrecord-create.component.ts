@@ -69,36 +69,40 @@ export class DoctorMedicalrecordCreateComponent implements OnInit {
   save() {
     //intake
     console.log(this.intakeArray);
-    let saveIntakeInterval: IntakeIntervalInterface;
-    for (let i = 0; i < this.intakeArray.length; i++) {
+    // let saveIntakeInterval: IntakeIntervalInterface;
+    // for (let i = 0; i < this.intakeArray.length; i++) {
 
-      if (this.intakeArray[i].startInterval === this.selectedInterval.split('-')[0]) {
-        console.log(this.intakeArray[i]);
-        saveIntakeInterval = this.intakeArray[i];
-      }
-    }
+    //   if (this.intakeArray[i].startInterval === this.selectedInterval.split('-')[0]) {
+    //     console.log(this.intakeArray[i]);
+    //     saveIntakeInterval = this.intakeArray[i];
+    //   }
+    // }
 
-    //drug
-    console.log(this.drugArray);
-    let saveDrug: DrugInterface;
-    for (let i = 0; i < this.drugArray.length; i++) {
+    // //drug
+    // console.log(this.drugArray);
+    // let saveDrug: DrugInterface;
+    // for (let i = 0; i < this.drugArray.length; i++) {
 
-      if (this.drugArray[i].name === this.selectedDrug) {
-        saveDrug = this.drugArray[i];
-      }
-    }
+    //   if (this.drugArray[i].name === this.selectedDrug) {
+    //     saveDrug = this.drugArray[i];
+    //   }
+    // }
 
     this.findDoctor();
     this.findPatient();
 
-    this.medicalrecordData.drugs = [saveDrug];
-    this.medicalrecordData.intakeIntervals = [saveIntakeInterval];
+    // this.medicalrecordData.drugs = [saveDrug];
+    // this.medicalrecordData.intakeIntervals = [saveIntakeInterval];
+
+
+    this.medicalrecordData.drugs = this.drugArray;
+    this.medicalrecordData.intakeIntervals = this.intakeArray;
 
     console.log("createMedicalrecordDetails()", this.medicalrecordData);
     console.log("createMedicalrecordDetails() patient", this.medicalrecordData.patient);
     console.log("createMedicalrecordDetails() doctor", this.medicalrecordData.doctor);
-    console.log("******", saveDrug.id);
-    console.log("******", saveIntakeInterval.id);
+    // console.log("******", saveDrug.id);
+    // console.log("******", saveIntakeInterval.id);
     this.apiService.createMedicalrecordDetails(this.medicalrecordData).subscribe(
       (data: number) => {
         console.log("Medicalrecord saved");
