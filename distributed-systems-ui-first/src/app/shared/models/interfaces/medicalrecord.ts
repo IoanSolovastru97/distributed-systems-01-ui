@@ -3,9 +3,9 @@ import { DoctorInterface } from './doctor';
 import { DrugInterface } from './drug';
 import { IntakeIntervalInterface } from './intakeinterval';
 
-export interface MedicalRecordInterface {
+export class MedicalrecordInterface {
     
-    id: string;
+    id: number;
 
     patient: PatientInterface;
 
@@ -13,8 +13,8 @@ export interface MedicalRecordInterface {
 
     period: string;
 
-    drugs: Array<DrugInterface>;
+    drugs: DrugInterface[];
 
-    intakeIntervals: Array<IntakeIntervalInterface>;
+    intakeIntervals: IntakeIntervalInterface[];
 
 }

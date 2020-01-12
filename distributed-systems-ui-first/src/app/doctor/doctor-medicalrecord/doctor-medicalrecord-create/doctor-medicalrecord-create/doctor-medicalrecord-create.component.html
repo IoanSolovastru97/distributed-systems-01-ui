@@ -1,0 +1,67 @@
+<div class="card-body">
+    <div class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Patient</label>
+                    <input class="form-control" type="text" name="patient" required
+                        [(ngModel)]="selectedPatient">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Doctor</label>
+                    <input class="form-control" type="text" name="doctor" required
+                        [(ngModel)]="selectedDoctor">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Period</label>
+                    <input class="form-control" type="text" name="period" required
+                        [(ngModel)]="medicalrecordData.period">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputLarge">Intake interval</label>
+                        <select class="form-control" [(ngModel)]="selectedInterval">
+                            <option *ngFor="let int of intakeArray">{{int.startInterval}}-{{int.endInterval}} </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputLarge">Drug</label>
+                    <select class="form-control" [(ngModel)]="selectedDrug">
+                        <option *ngFor="let drug of drugArray">{{drug.name}} </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="card-footer text-muted">
+    <div class="form-inline d-flex">
+        <button type="button" class="btn btn-outline-primary btn-save" (click)="save()">
+            Save Medical record
+        </button>
+        <button type="button" class="btn btn-outline-primary " (click)="onMedicalrecordCancel()">
+            <i class=" fas fa-times mr-2"></i>
+            Cancel
+        </button>
+    </div>
+</div>

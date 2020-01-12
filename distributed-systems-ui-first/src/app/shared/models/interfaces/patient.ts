@@ -1,8 +1,8 @@
-import { MedicalRecordInterface } from './medicalrecord';
+import { MedicalrecordInterface } from './medicalrecord';
 
 /** Patient Interface */
 
-export interface PatientInterface {
+export class PatientInterface {
 
   username: string;
 
@@ -19,6 +19,6 @@ export interface PatientInterface {
   role: string;
 
   // medicalRecord: MedicalRecordInterface[];
-  medicalRecord: Array<MedicalRecordInterface>;
+  medicalRecord: Array<MedicalrecordInterface>;
 
 }

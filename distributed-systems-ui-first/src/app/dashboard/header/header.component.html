@@ -7,10 +7,31 @@
 
     <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
       <a class="nav-link" routerLink="/doctor">
-        <i class="fas fa-users margin--right__xs"></i>
+        <i class="fas fa-user-md margin--right__xs"></i>
         Doctor
       </a>
     </li>
+
+    <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
+        <a class="nav-link" routerLink="/doctor/patient">
+          <i class="fas fa-users margin--right__xs"></i>
+          Patients
+        </a>
+      </li>
+
+      <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
+          <a class="nav-link" routerLink="/doctor/caregiver">
+            <i class="fas fa-user-nurse margin--right__xs"></i>
+            Caregivers
+          </a>
+      </li>
+      
+      <li class="nav-item" routerLinkActive="active" *ngIf="isDoctor()">
+          <a class="nav-link" routerLink="/doctor/medicalrecord">
+            <i class="fas fa-file-medical margin--right__xs"></i>
+            Medication Plan
+          </a>
+      </li>
 
     <li class="nav-item">
       <!-- Binding header.component.logout() method to the link onClick event -->

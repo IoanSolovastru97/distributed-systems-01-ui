@@ -22,6 +22,16 @@ const routes: Routes = [
       { path: 'patient', loadChildren: '../patient/patient.module#PatientModule' },
       // /** '/admin' route path config */
       { path: 'caregiver', loadChildren: '../caregiver/caregiver.module#CaregiverModule' },
+      { path: 'doctor', loadChildren: '../doctor/doctor.module#DoctorModule' },
+      { path: 'doctor/patient', loadChildren: '../doctor/doctor-patient/doctor-patient.module#DoctorPatientModule' },
+      { path: 'doctor/patient/create', loadChildren: '../doctor/doctor-patient/doctor-patient-create/doctor-patient-create.module#DoctorPatientCreateModule' },
+      { path: 'doctor/patient/edit', loadChildren: '../doctor/doctor-patient/doctor-patient-edit/doctor-patient-edit.module#DoctorPatientEditModule' },
+      { path: 'doctor/caregiver', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver.module#DoctorCaregiverModule' },
+      { path: 'doctor/caregiver/create', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver-create/doctor-caregiver-create.module#DoctorCaregiverCreateModule' },
+      { path: 'doctor/caregiver/edit', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver-edit/doctor-caregiver-edit.module#DoctorCaregiverEditModule' },
+      { path: 'doctor/caregiver', loadChildren: '../doctor/doctor-caregiver/doctor-caregiver.module#DoctorCaregiverModule' },
+      { path: 'doctor/medicalrecord', loadChildren: '../doctor/doctor-medicalrecord/doctor-medicalrecord.module#DoctorMedicalrecordModule' },
+      { path: 'doctor/medicalrecord/create', loadChildren: '../doctor/doctor-medicalrecord/doctor-medicalrecord-create/doctor-medicalrecord-create.module#DoctorMedicalrecordCreateModule' },
       // { path: 'employee', loadChildren: '../admin/admin.module#AdminModule' }
     ]
   }

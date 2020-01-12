@@ -1,6 +1,6 @@
 import { DrugEffectInterface } from './drugeffect';
 
-export interface DrugInterface {
+export class DrugInterface {
     
     id: number;
 

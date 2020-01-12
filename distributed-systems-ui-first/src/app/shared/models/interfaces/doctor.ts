@@ -1,7 +1,7 @@
 import { PatientInterface } from './patient';
-import { MedicalRecordInterface } from './medicalrecord';
+import { MedicalrecordInterface } from './medicalrecord';
 
-export interface DoctorInterface {
+export class DoctorInterface {
     
     username: string;
 
@@ -19,5 +19,5 @@ export interface DoctorInterface {
 
     patients: Array<PatientInterface>;
 
-    medicalRecord: Array<MedicalRecordInterface>;
+    medicalRecord: Array<MedicalrecordInterface>;
 }

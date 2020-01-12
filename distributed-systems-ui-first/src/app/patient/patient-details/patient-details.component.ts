@@ -19,12 +19,6 @@ export class PatientDetailsComponent implements OnInit {
     @Input()
     username: string;
 
-    @Input()
-    addPatient: boolean;
-
-    @Output()
-    onSaveSuccess: EventEmitter<boolean> = new EventEmitter();
-
     private patientData: PatientInterface;
 
     constructor(
@@ -32,12 +26,6 @@ export class PatientDetailsComponent implements OnInit {
         private storageService: StorageService,
         private toastr: ToastrService) {
     }
-
-    /**
-     * This is an Angular method
-     * (one of the lifcecycle component hooks: https://angular.io/guide/lifecycle-hooks)
-     * Will detect changes on the @Input data, e.g when user select a diferent patient from the list
-     */
 
     ngOnInit(): void {
         this.getPatientDetailsData(this.storageService.get(this.storageService.username));
@@ -63,30 +51,15 @@ export class PatientDetailsComponent implements OnInit {
      * This method is it bind to the `Save Patient` button
      */
     onPatientSave(): void {
-        /** Trigger the saving method from the API Service passing the patientData*/
+        console.log("patient save", this.patientData.gender);
         this.apiService.savePatientDetails(this.patientData).subscribe(
-            /** On Success */
             (data: PatientInterface) => {
                 console.log("Patient saved");
-                /** Notify the parent component to refresf the patient list */
-                this.onSaveSuccess.emit(true);
-                /** Notify the user with a successful message */
-                this.toastr.success('Patient details updated!');
             },
-            /** On Error */
             (error: HttpErrorResponse) => {
-                /** Notify the user about the error */
-                // this.toastr.error(error.message);
-                /** End the isSaving flag */
             },
         );
     }
 
-
-
-    /** This method will clear the `patientData` value and `_patientData` copy value */
-    clearComponentData(): void {
-        this.patientData = undefined;
-    }
 
 }
