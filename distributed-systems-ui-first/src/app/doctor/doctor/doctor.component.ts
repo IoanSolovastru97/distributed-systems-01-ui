@@ -7,8 +7,8 @@ import { DoctorInterface } from 'src/app/shared/models/interfaces/doctor';
 
 @Component({
     selector: 'app-Doctor',
-    templateUrl: './Doctor.component.html',
-    styleUrls: ['./Doctor.component.scss']
+    templateUrl: './doctor.component.html',
+    styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
 

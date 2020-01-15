@@ -12,8 +12,8 @@ import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 
 @Component({
   selector: 'app-DoctorMedicalrecordCreate',
-  templateUrl: './Doctor-medicalrecord-create.component.html',
-  styleUrls: ['./Doctor-medicalrecord-create.component.scss']
+  templateUrl: './doctor-medicalrecord-create.component.html',
+  styleUrls: ['./doctor-medicalrecord-create.component.scss']
 })
 export class DoctorMedicalrecordCreateComponent implements OnInit {
 

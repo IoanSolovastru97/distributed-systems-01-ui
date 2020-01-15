@@ -9,8 +9,8 @@ import { MedicalrecordInterface } from 'src/app/shared/models/interfaces/medical
 
 @Component({
   selector: 'app-DoctorMedicalrecord',
-  templateUrl: './Doctor-medicalrecord.component.html',
-  styleUrls: ['./Doctor-medicalrecord.component.scss']
+  templateUrl: './doctor-medicalrecord.component.html',
+  styleUrls: ['./doctor-medicalrecord.component.scss']
 })
 export class DoctorMedicalrecordComponent implements OnInit {
 

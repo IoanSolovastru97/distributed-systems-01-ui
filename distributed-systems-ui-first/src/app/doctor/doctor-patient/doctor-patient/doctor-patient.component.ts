@@ -9,8 +9,8 @@ import { PatientInterface } from 'src/app/shared/models/interfaces/patient';
 
 @Component({
   selector: 'app-DoctorPatient',
-  templateUrl: './Doctor-patient.component.html',
-  styleUrls: ['./Doctor-patient.component.scss']
+  templateUrl: './doctor-patient.component.html',
+  styleUrls: ['./doctor-patient.component.scss']
 })
 export class DoctorPatientComponent implements OnInit {
 

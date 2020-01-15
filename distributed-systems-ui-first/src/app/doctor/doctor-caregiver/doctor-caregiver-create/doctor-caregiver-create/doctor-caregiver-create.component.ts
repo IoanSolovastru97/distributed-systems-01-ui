@@ -9,8 +9,8 @@ import { CaregiverInterface } from 'src/app/shared/models/interfaces/caregiver';
 
 @Component({
   selector: 'app-DoctorCaregiverCreate',
-  templateUrl: './Doctor-caregiver-create.component.html',
-  styleUrls: ['./Doctor-caregiver-create.component.scss']
+  templateUrl: './doctor-caregiver-create.component.html',
+  styleUrls: ['./doctor-caregiver-create.component.scss']
 })
 export class DoctorCaregiverCreateComponent {
 
